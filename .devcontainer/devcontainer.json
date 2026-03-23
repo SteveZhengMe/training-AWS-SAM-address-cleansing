@@ -8,6 +8,7 @@
     "ghcr.io/devcontainers/features/common-utils:latest": {
       "installZsh": true
     },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/aws-cli:latest": {},
     "ghcr.io/devcontainers/features/docker-from-docker:latest": {
       "moby": false
