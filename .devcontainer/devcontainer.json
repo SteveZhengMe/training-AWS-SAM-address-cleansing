@@ -1,0 +1,45 @@
+{
+  "name": "training-AWS-SAM-address-cleansing",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:latest": {
+      "installZsh": true
+    },
+    "ghcr.io/devcontainers/features/aws-cli:latest": {},
+    "ghcr.io/devcontainers/features/docker-from-docker:latest": {
+      "moby": false
+    },
+    "ghcr.io/devcontainers-extra/features/poetry:2": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "runArgs": [
+    "--env-file", "${localWorkspaceFolder}/.env"
+  ],
+  "customizations": {
+    "vscode":{
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "saoudrizwan.claude-dev",
+        "ms-python.black-formatter",
+        "zeshuaro.vscode-python-poetry",
+        "oderwat.indent-rainbow",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "pip install aws-sam-cli && npm install -g swaggerhub-cli && poetry install --no-root",
+  "containerEnv": {
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  }
+}
