@@ -1,10 +1,8 @@
 #! /bin/bash
 
-swaggerhub api:update ${SWAGGERHUB_DOMAIN}/AddressCleanseDemo --setdefault --file ./swagger/openapi.yaml
+source .env
 
-# get the error from swaggerhub:
-if [ $? -ne 0 ]; then
-    echo "Update Failed. Create a new version of the API"
-    swaggerhub api:create ${SWAGGERHUB_DOMAIN}/AddressCleanseDemo --setdefault --file ./swagger/openapi.yaml
-    exit 0
-fi
+npx @scalar/cli auth login --token $SCALAR_AUTH
+npx @scalar/cli registry publish ./swagger/openapi.yaml --namespace pilotworks --private --force
+
+echo "https://registry.scalar.com/@pilotworks/apis/address-cleansing-demo"

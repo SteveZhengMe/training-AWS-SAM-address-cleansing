@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   description: |
     This is a address cleansing demo.
-  version: "1.0.2"
+  version: "1.1.0"
   title: Address Cleansing Demo
   license:
     name: Apache 2.0
