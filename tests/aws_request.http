@@ -1,12 +1,15 @@
-@host_aws = https://addr-clns.pilotworks.live
+@aws_api_gateway_endpoint = yx36mlps95
+@auth = dgf834-20260331
+@host_aws = https://{{aws_api_gateway_endpoint}}.execute-api.us-east-1.amazonaws.com/Prod
 @host_local = http://127.0.0.1:3000
 @host={{host_aws}}
+
 
 ### Generate Addresses
 POST {{host}}/gen HTTP/1.1
 content-type: application/json
 User-Agent: rest-client
-auth: dgf834-20230831
+auth: {{auth}}
 
 {
     "address_in": "French",
@@ -19,7 +22,7 @@ POST {{host}}/cleanse/gpt HTTP/1.1
 content-type: application/json
 User-Agent: rest-client
 Accept-Encoding: *
-auth: dgf834-20230831
+auth: {{auth}}
 
 {
     "params": {
@@ -41,10 +44,20 @@ auth: dgf834-20230831
     #     "5": "山东省青岛市市南区香港中路"
     # }
     {
-        "1": "27 Rue de la Liberté, Paris, 75001 France",
-        "2": "14 Avenue des Champs-Élysées, Nice, 06000 France",
-        "3": "5 Place de la Concorde, Bordeaux, 33000 France",
-        "4": "3 Rue du Pont-Neuf, Lyon, Rhône-Alpes, France",
-        "5": "8 Rue de la République, Marseille, 13001 France"
+        "1": "Marie Dubois",
+        "2": "12 Rue de la Paix",
+        "3": "Paris, France 75002",
+        "5": "Étienne Leroux",
+        "6": "25 Avenue du Général de Gaulle",
+        "7": "Lyon, France 69007",
+        "9": "Sophie Moreau",
+        "10": "8 Place Bellecour",
+        "11": "Marseille, France 13001",
+        "13": "Antoine Lefevre",
+        "14": "16 Boulevard Haussmann",
+        "15": "Nice, France 06000",
+        "17": "Camille Martin",
+        "18": "10 Rue des Fleurs",
+        "19": "Toulouse, France 31000"
     }
 }

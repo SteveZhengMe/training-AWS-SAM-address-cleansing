@@ -12,7 +12,7 @@ Globals:
     Environment:
       Variables:
         LOG_LEVEL: INFO
-        openai_key: '{{resolve:ssm:dev__openai:1}}'
+        openai_key: '{{resolve:ssm:dev__openai}}'
 
 Resources:
   Api:
@@ -42,7 +42,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     DeletionPolicy: Delete
     Properties:
-      LogGroupName: !Sub /aws/lambda/addr-clnse/${auth}
+      LogGroupName: !Sub /aws/lambda/${auth}
   addressCleansing:
     Type: AWS::Serverless::Function
     Properties:
@@ -65,7 +65,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     DeletionPolicy: Delete
     Properties:
-      LogGroupName: !Sub /aws/lambda/addr-clnse/${addressCleansing}
+      LogGroupName: !Sub /aws/lambda/${addressCleansing}
   addressGenerator:
     Type: AWS::Serverless::Function
     Properties:
@@ -88,7 +88,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     DeletionPolicy: Delete
     Properties:
-      LogGroupName: !Sub /aws/lambda/addr-clnse/${addressGenerator}
+      LogGroupName: !Sub /aws/lambda/${addressGenerator}
 
 Outputs:
   auth:
@@ -109,3 +109,6 @@ Outputs:
   addressGeneratorIamRole:
     Description: Implicit IAM Role created for addressGenerator function
     Value: !GetAtt addressGeneratorRole.Arn
+  ApiGatewayStageURL:
+    Description: "API Gateway"
+    Value: !Sub "${Api}"

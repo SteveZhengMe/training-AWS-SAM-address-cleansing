@@ -8,7 +8,8 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'https://addr-clns.pilotworks.live'
+  - url: 'https://kxtze8ldu2.execute-api.us-east-1.amazonaws.com/Prod'
+    description: AWS API Gateway endpoint
 tags: 
   - name: Generate
     description: Generate addresses

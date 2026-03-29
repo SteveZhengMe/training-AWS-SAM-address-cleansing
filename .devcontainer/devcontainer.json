@@ -34,7 +34,8 @@
         "zeshuaro.vscode-python-poetry",
         "oderwat.indent-rainbow",
         "esbenp.prettier-vscode",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "humao.rest-client"
       ]
     }
   },

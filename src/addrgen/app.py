@@ -43,7 +43,7 @@ def gen_address(openai_key: str, sys_mpt: str, usr_mpt: str):
     openai.api_key = openai_key
 
     # try 5 times if openai is not available
-    for i in range(5):
+    for i in range(2):
         try:
             chat_completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
@@ -63,5 +63,6 @@ def gen_address(openai_key: str, sys_mpt: str, usr_mpt: str):
         except Exception as e:
             try_again_in = 2*(i+1)
             print(f"OpenAI is not available, try again in {try_again_in} seconds, {5-i} times left")
+            print(f"Error: {e}")
             time.sleep(2*(i+1))
             continue
