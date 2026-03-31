@@ -38,8 +38,8 @@ def validate_request(token:str):
     if len(parts) != 2:
         return False
     
-    # if the first part is not dgf834, return False
-    if parts[0] != "dgf834":
+    # if the first part is not acd, return False
+    if parts[0] != "acd":
         return False
     
     # if the second part is not the last date of the current month, return False
