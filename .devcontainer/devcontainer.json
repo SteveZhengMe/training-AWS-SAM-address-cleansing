@@ -40,7 +40,7 @@
     }
   },
   "remoteUser": "vscode",
-  "postCreateCommand": "pip install aws-sam-cli && npm -g --force install @scalar/cli && poetry install --no-root",
+  "postCreateCommand": "pip install aws-sam-cli && npm -g --force install @scalar/cli && sudo chown -R $USER:$USER /usr/local/py-utils/venvs/poetry && pipx inject poetry poetry-plugin-export &&poetry install --no-root",
   "containerEnv": {
     "PIP_DISABLE_PIP_VERSION_CHECK": "1",
     "AWS_DEFAULT_REGION": "us-east-1",
